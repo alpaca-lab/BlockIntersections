@@ -4676,6 +4676,193 @@ BlockIntersection(bl12b);
 
 
 ##################################################
+##################    G_8    #####################
+##################################################25.4.25
+x:=X(Cyclotomics);; x.name:="x";;
+W:= ComplexReflectionGroup(8);
+uc:=UnipotentCharacters(W); Display(uc);
+unp:=uc.degrees;;
+
+## complete HC-parametrisation
+
+###############
+###   d=1
+H:=Hecke(W,[[x,E(4),-1,-E(4)]]);
+bl2:=[[1,3,11,13,15],[2,4,6,12,14,16],[5,8],[7,10]];;
+bl3:=[[1,3,6],[5,10,15],[7,8,16]];;
+bl4a:=[[1,2,7,9,13],[3,5,11,12,14],[6,8]];;
+bl4b:=[[1,4,5,9,13],[3,7,11,12,14],[6,10]];;
+bl6:=[[1,11,16],[6,9,15]];;
+bl8a:=[[1,8,14]];;  # E(8),E(8)^5
+bl8b:=[[1,10,12]];;  # E(8)^3,E(8)^7
+bl12:=[[1,2,5]];;
+
+degs:=List(SchurElements(H),i->(x^8-1)*(x^12-1)/(x-1)^2/i);;
+BlockIntersection(bl2);
+BlockIntersection(bl3);
+BlockIntersection(bl4a);
+BlockIntersection(bl4b);
+BlockIntersection(bl6);
+BlockIntersection(bl8a);
+BlockIntersection(bl8b);
+BlockIntersection(bl12);
+
+
+###############
+###   d=2
+H:=Hecke(W,[[-x,E(4),-1,-E(4)]]);
+bl1:=[[1,3,11,13,15],[2,4,6,12,14,16],[5,8],[7,10]];;
+bl3:=[[1,11,15],[6,9,16]];;
+bl4a:=[[1,4,5,9,13],[3,7,11,12,14],[6,10]];;
+bl4b:=[[1,2,7,9,13],[3,5,11,12,14],[6,8]];;
+bl6:=[[1,3,6],[5,10,15],[7,8,16]];;
+bl8a:=[[1,8,14]];;  # E(8),E(8)^5
+bl8b:=[[1,10,12]];;  # E(8)^3,E(8)^7
+bl12:=[[1,4,7]];;
+
+degs:=List(SchurElements(H),i->(x^8-1)*(x^12-1)/(x+1)^2/i);;
+BlockIntersection(bl1);
+BlockIntersection(bl3);
+BlockIntersection(bl4a);
+BlockIntersection(bl4b);
+BlockIntersection(bl6);
+BlockIntersection(bl8a);
+BlockIntersection(bl8b);
+BlockIntersection(bl12);
+
+
+###############
+###   d=3
+H:=Hecke(ComplexReflectionGroup(12,1,1),[[1,E(3),-E(3),E(3)^2,E(12),E(12)^7,E(12)*x,E(12)^7*x,-E(3)*x^2,E(12)*x^2,E(12)^7*x^2,-E(3)*x^4]]);
+bl1:=[[5,7,10],[6,8,11],[3,9,12]];;
+bl2:=[[5,11],[2,8,9],[6,10],[3,7,12]];;
+bl4a:=[[5,9],[2,10,12],[3,11]];;
+bl4b:=[[2,11,12],[6,9],[3,10]];;
+bl6a:=[[1,9],[7,12],[4,8]];;
+bl6b:=[[1,7],[8,12],[4,9]];;
+bl8a:=[[5,12]];;  # E(8), -E(8)
+bl8b:=[[6,12]];;  # E(8)^3, -E(8)^3
+bl12a:=[[1,12],[4,11]];;  # E(12)
+bl12b:=[[1,12],[4,10]];;  # E(12)^7
+bl12c:=[[1,10],[4,12]];;  # E(12)^11
+bl12d:=[[1,11],[4,12]];;  # -E(12)^11
+
+degs:=List(SchurElements(H),i->(x^16-1)*(x^24-1)/(x^4+x^2+1)/i);;
+unp:=List(uc.degrees,i->Value(i,x^2));;
+
+BlockIntersection(bl1);
+BlockIntersection(bl2);
+BlockIntersection(bl4a);
+BlockIntersection(bl4b);
+BlockIntersection(bl6a);
+BlockIntersection(bl6b);
+BlockIntersection(bl8a);
+BlockIntersection(bl8b);
+BlockIntersection(bl12a);
+BlockIntersection(bl12b);
+
+
+###############
+###   d=4
+H:=Hecke(W,[[x,1,-E(4),-1]]);
+
+degs:=List(SchurElements(H),i->(x^8-1)*(x^12-1)/(x-E(4))^2/i);;
+
+
+###############
+###   d=6
+H:=Hecke(ComplexReflectionGroup(12,1,1),[[1,E(3),-E(3),E(3)^2,E(12),E(12)^7,E(3)*x,-E(3)*x,E(3)*x^2,E(12)*x^2,E(12)^7*x^2,-E(3)*x^4]]);
+bl1:=[[5,10],[2,7,9],[6,11],[3,8,12]];;
+bl2:=[[5,8,11],[6,7,10],[3,9,12]];;
+bl3a:=[[1,8],[7,12],[4,9]];;
+bl3b:=[[1,9],[8,12],[4,7]];;
+bl4a:=[[2,10,12],[6,9],[3,11]];;
+bl4b:=[[5,9],[2,11,12],[3,10]];;
+bl8a:=[[5,12]];;  # E(8), -E(8)
+bl8b:=[[6,12]];;  E(8)^3, -E(8)^3
+bl12a:=[[1,12],[4,11]];;  # E(12)
+bl12b:=[[1,12],[4,10]];;  # E(12)^7
+bl12c:=[[1,10],[4,12]];;  # E(12)^11
+bl12d:=[[1,11],[4,12]];;  # -E(12)^11
+
+degs:=List(SchurElements(H),i->(x^16-1)*(x^24-1)/(x^4-x^2+1)/i);;
+BlockIntersection(bl1);
+BlockIntersection(bl2);
+BlockIntersection(bl3a);
+BlockIntersection(bl3b);
+BlockIntersection(bl4a);
+BlockIntersection(bl4b);
+BlockIntersection(bl8a);
+BlockIntersection(bl8b);
+BlockIntersection(bl12a);
+BlockIntersection(bl12b);
+
+
+###############
+###   d=8
+H:=Hecke(ComplexReflectionGroup(8,1,1),[[1,-1,E(4),-E(4),x,-x,E(4)*x,-x^3]]);
+bl1:=[[1,5],[3,7],[2,6,8]];;
+bl2:=[[1,6,8],[2,5],[4,7]];;
+bl3:=[[2,8]];;
+bl4a:=[[3,5,8],[2,7],[4,6]];;
+bl4b:=[[1,7],[3,6],[4,5,8]];;
+bl6:=[[1,8]];;
+bl8b:=[[7,8]];;
+bl12a:=[[4,8]];;
+bl12b:=[[3,8]];;
+
+degs:=-E(4)*List(SchurElements(H),i->(x^8-1)*(x^12-1)/(x^2-E(4))/i);;
+BlockIntersection(bl1);
+BlockIntersection(bl2);
+BlockIntersection(bl3);
+BlockIntersection(bl4a);
+BlockIntersection(bl4b);
+BlockIntersection(bl6);
+BlockIntersection(bl8b);
+BlockIntersection(bl12a);
+BlockIntersection(bl12b);
+
+
+###############
+###   d=12
+H:=Hecke(ComplexReflectionGroup(12,1,1),[[1,E(3),-E(3),E(3)^2,E(12),E(12)^7,-E(24)^17*x,E(24)^17*x,E(12)*x^2,E(3)*x^2,-E(3)*x^2,E(3)*x^4]]);
+bl1:=[[5,9],[2,10,12],[3,11]];;
+bl2:=[[2,11,12],[6,9],[3,10]];;
+bl3a:=[[1,12],[4,10]];;
+bl3b:=[[1,10],[4,12]];;
+bl4a:=[[5,11],[2,7,9],[6,10],[3,8,12]];;
+bl4b:=[[5,8,10],[6,7,11],[3,9,12]];;
+bl6a:=[[1,11],[4,12]];;
+bl6b:=[[1,12],[4,11]];;
+bl8:=[[6,12]];;
+bl12b:=[[1,8],[7,12],[4,9]];;  # E(12)^7
+bl12c:=[[1,9],[8,12],[4,7]];;  # E(12)^11
+
+degs:=List(SchurElements(H),i->(x^16-1)*(x^24-1)/(-x^4+E(4)*x^2+1)/i);;
+BlockIntersection(bl1);
+BlockIntersection(bl2);
+BlockIntersection(bl3a);
+BlockIntersection(bl3b);
+BlockIntersection(bl4a);
+BlockIntersection(bl4b);
+BlockIntersection(bl6a);
+BlockIntersection(bl6b);
+BlockIntersection(bl8);
+BlockIntersection(bl12a);
+BlockIntersection(bl12b);
+
+
+ordspez:=96; sizecyc:=8;
+for i in [0..ordspez-1] do
+ ls:=List(l,j->Value(j,E(ordspez)^i));
+ m:=List([0..ordspez-1],j->Filtered([1..sizecyc],k->ls[k]=E(ordspez)^j));
+ if Filtered(m,j->Length(j)>1)<>[] then
+   Print("bl",E(ordspez)^(i),":= ",Filtered(m,j->Length(j)>1),"\n");
+fi; od;
+
+
+
+##################################################
 ##################    G_24   #####################
 ##################################################7.3.25
 x:=X(Cyclotomics);; x.name:="x";;
@@ -4883,6 +5070,9 @@ unp:=uc.degrees;;
 ###############
 ###   d=1
 H:=Hecke(W,[[1,-x]]);
+bl2:=[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,21,22,23,24,25,26,
+  31,32,33,34,35,36,39,40],[19,20,27,28,29,30]];;
+OR
 bl2:=[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,21,22,23,24,25,26,
   31,32,33,34,35,36,39,40],[19,20],[27,28],[29,30]];;
 bl3:=[[1,3,5,7,9,11,13,15,17,19,21,25,27,29,33,35,37],
